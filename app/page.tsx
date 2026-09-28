@@ -38,7 +38,8 @@ export default function Page() {
               <Sparkles size={14} /> A simpler way to get fit
             </div>
             <h1 className="text-balance text-5xl font-semibold leading-[1.04] tracking-[-0.055em] text-[#10254a] sm:text-6xl lg:text-[76px]">Scan your meal. Hit your <span className="text-[#1769ff]">protein.</span></h1>
-            <p className="mt-7 max-w-lg text-pretty text-lg leading-8 text-[#526987]">GymBite is a simple, free fitness app that turns your meals and movement into a clear daily plan.</p>
+            <p className="mt-4 text-sm font-semibold text-[#1769ff]">Now on GitHub.</p>
+            <p className="mt-4 max-w-lg text-pretty text-lg leading-8 text-[#526987]">GymBite is a simple, free fitness app that turns your meals and movement into a clear daily plan.</p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a href={appUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#1769ff] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(23,105,255,0.25)] transition-transform hover:-translate-y-0.5">See GymBite <ArrowUpRight size={17} /></a>
               <a href="#how-it-works" className="inline-flex items-center justify-center rounded-full border border-[#c7daf7] bg-white/70 px-6 py-3.5 text-sm font-semibold text-[#24518f] transition-colors hover:bg-white">How it works</a>
