@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/sitemap.xml", "destination": "/api/seo?mode=sitemap" },
+    { "source": "/robots.txt", "destination": "/api/seo?mode=robots" },
+    { "source": "/seo", "destination": "/api/seo?slug=__hub__" },
+    { "source": "/seo/:slug", "destination": "/api/seo?slug=:slug" }
+  ]
+}
