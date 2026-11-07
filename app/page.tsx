@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react"
 import Link from "next/link"
+import { withBase } from "@/lib/with-base"
 
 type GoalMode = "cut" | "recomp" | "maintain" | "bulk"
 type Sex = "male" | "female"
@@ -187,7 +188,7 @@ export default function HomePage() {
             <a href="#restaurants" className="hover:text-[#0f172a]">
               Restaurant Macros
             </a>
-            <a href="/seo" className="hover:text-[#0f172a]">
+            <a href={withBase("/seo", { directory: true })} className="hover:text-[#0f172a]">
               5,000+ Nutrition Index
             </a>
             <Link href="/get" className="hover:text-[#0f172a]">
@@ -237,7 +238,7 @@ export default function HomePage() {
                 Open Live Tracker (Web / iOS)
               </a>
               <a
-                href="/GymBite.apk"
+                href={withBase("/GymBite.apk")}
                 download="GymBite.apk"
                 className="inline-flex items-center justify-center rounded-lg border border-[#0A6EBE] bg-[#eff6ff] px-5 py-3 text-sm font-semibold text-[#0A6EBE] hover:bg-[#dbeafe]"
               >
@@ -572,7 +573,7 @@ export default function HomePage() {
                 High-Protein Fast-Casual Orders vs. Your {calc.proteinG}g Target
               </h2>
             </div>
-            <a href="/seo" className="text-xs font-bold text-[#0A6EBE] hover:underline">
+            <a href={withBase("/seo", { directory: true })} className="text-xs font-bold text-[#0A6EBE] hover:underline">
               Browse All 5,000+ Restaurant &amp; Food Pages →
             </a>
           </div>
@@ -641,13 +642,13 @@ export default function HomePage() {
             <Link href="/get" className="hover:text-[#0f172a]">
               Download Android APK (/get)
             </Link>
-            <a href="/GymBite.apk" className="hover:text-[#0f172a]">
+            <a href={withBase("/GymBite.apk")} className="hover:text-[#0f172a]">
               Direct GymBite.apk
             </a>
-            <a href="/seo" className="hover:text-[#0f172a]">
+            <a href={withBase("/seo", { directory: true })} className="hover:text-[#0f172a]">
               Nutrition &amp; TDEE Directory (/seo)
             </a>
-            <a href="/sitemap.xml" className="hover:text-[#0f172a]">
+            <a href={withBase("/sitemap.xml")} className="hover:text-[#0f172a]">
               Sitemap
             </a>
           </div>

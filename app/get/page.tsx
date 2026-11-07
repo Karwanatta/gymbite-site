@@ -1,12 +1,14 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { sitePageUrl } from "@/lib/site"
+import { withBase } from "@/lib/with-base"
 
 export const metadata: Metadata = {
   title: "Download GymBite (Android APK, iOS & Web) — Free Calorie & Gym Tracker",
   description:
     "Download the signed GymBite Android APK (v1.4, 5.8 MB) with Health Connect sync or launch the GymBite Web & iOS PWA tracker.",
   alternates: {
-    canonical: "https://gymbite-site.vercel.app/get",
+    canonical: sitePageUrl("/get"),
   },
 }
 
@@ -49,7 +51,7 @@ export default function GetGymBitePage() {
 
               <div className="mt-5 space-y-2">
                 <a
-                  href="/GymBite.apk"
+                  href={withBase("/GymBite.apk")}
                   download="GymBite.apk"
                   className="flex w-full items-center justify-center rounded-lg bg-[#0A6EBE] px-4 py-3 text-sm font-bold text-white hover:bg-[#085a9c]"
                 >
@@ -120,7 +122,7 @@ export default function GetGymBitePage() {
             ← Home &amp; TDEE Calculator
           </Link>
           <span>·</span>
-          <a href="/seo" className="hover:text-[#0f172a]">
+          <a href={withBase("/seo", { directory: true })} className="hover:text-[#0f172a]">
             5,000+ Nutrition &amp; Restaurant Macro Guides
           </a>
           <span>·</span>
