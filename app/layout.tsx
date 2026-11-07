@@ -1,17 +1,21 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { sitePageUrl, sitePublicRoot } from '@/lib/site'
 import './globals.css'
 
+const siteRoot = sitePublicRoot()
+const homeUrl = sitePageUrl('/')
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://gymbite-site.vercel.app'),
+  metadataBase: new URL(siteRoot),
   title: 'GymBite — AI Food Calorie Scanner, Restaurant Macro Lookup & Gym Tracker',
   description: 'GymBite is a free AI fitness app that counts calories and protein from meal photos, provides 5,000+ restaurant macro guides & TDEE calculators, and tracks daily gym workouts.',
   alternates: {
-    canonical: 'https://gymbite-site.vercel.app/',
+    canonical: homeUrl,
   },
   openGraph: {
     type: 'website',
-    url: 'https://gymbite-site.vercel.app/',
+    url: homeUrl,
     siteName: 'GymBite',
     title: 'GymBite — AI Food Calorie Scanner, Restaurant Macro Lookup & Gym Tracker',
     description: 'Scan meals with AI, look up high-protein restaurant orders (Chipotle, Chick-fil-A, McDonald’s, Taco Bell, Starbucks), calculate TDEE, and log workouts.',
@@ -54,7 +58,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        {process.env.NODE_ENV === 'production' && process.env.VERCEL === '1' && <Analytics />}
       </body>
     </html>
   )

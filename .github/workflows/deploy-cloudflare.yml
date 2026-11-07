@@ -1,0 +1,38 @@
+name: Deploy GymBite to Cloudflare Workers
+
+on:
+  workflow_dispatch:
+    inputs:
+      site_url:
+        description: Public origin only, without a path or trailing slash
+        required: true
+        default: https://gymbite-site.vercel.app
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.3.4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Build static site
+        run: pnpm build:static
+        env:
+          SITE_URL: ${{ inputs.site_url }}
+          NEXT_PUBLIC_BASE_PATH: ""
+          STATIC_OUT_DIR: out
+      - name: Deploy asset-only Worker
+        run: pnpm exec wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

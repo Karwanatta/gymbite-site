@@ -15,3 +15,8 @@ node_modules
 .DS_Store
 .vercel
 .env*
+out/
+out-pages/
+.wrangler/
+.static-export-stash/
+.static-build-manifest.json
